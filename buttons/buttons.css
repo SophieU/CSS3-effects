@@ -1,0 +1,46 @@
+a[class*='btn-']{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 250px;
+    height: 80px;
+    border: 1px solid currentColor;
+    margin: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 80px;
+    z-index: 2;
+}
+.wrap {
+    padding: 20px
+}
+ *,
+ *:before,
+ *:after {
+     box-sizing: border-box;
+     transition: 0.5s ease-in-out;
+ }
+ *:before,
+ *:after {
+     z-index: -1;
+ }
+.btn-0{
+    color: #588f3d;
+}
+ .btn-0:before {
+     content: '';
+     position: absolute;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     background-color: #234a10;
+     -webkit-transform: translateX(-100%);
+     transform: translateX(-100%);
+}
+.btn-0:hover {
+    color:#cedec6;
+}
+.btn-0:hover:before {
+    transform: translateX(0);
+}
