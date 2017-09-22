@@ -16,6 +16,7 @@ a[class*='btn-']{
  *:before,
  *:after {
      box-sizing: border-box;
+     -webkit-transition:0.5s ease-in-out;
      transition: 0.5s ease-in-out;
  }
  *:before,
@@ -43,3 +44,112 @@ a[class*='btn-']{
     transform: translateX(0);
 }
 /* btn-1 */
+.btn-1{color:#32459c;}
+.btn-1:before{
+     content: '';
+     position: absolute;
+     top: 0;
+     right: -50px;
+     bottom: 0;
+     left: 0;
+     border-right: 50px solid transparent;
+     border-bottom: 80px solid #081653;
+     -webkit-transform: translateX(-100%);
+     transform: translateX(-100%);
+}
+.btn-1:hover{
+    color:#c3c8e2;
+}
+.btn-1:hover:before {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+/* btn-2 */
+.btn-2{
+   color: #3e78c2;
+}
+.btn-2:before,
+.btn-2:after,
+.btn-2 span:before,
+.btn-2 span:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 25.25%;
+    height: 0;
+    background-color: #113a6e;
+}
+
+.btn-2:before {
+    left: 0;
+}
+
+.btn-2:after {
+    left: 50%;
+}
+
+.btn-2 span:before,
+.btn-2 span:after {
+    top: auto;
+    bottom: 0;
+}
+
+.btn-2 span:before {
+    left: 25%;
+}
+
+.btn-2 span:after {
+    left: 75%;
+}
+
+.btn-2:hover {
+    color: #c6d7ed;
+}
+
+.btn-2:hover:before,
+.btn-2:hover:after,
+.btn-2:hover span:before,
+.btn-2:hover span:after {
+    height: 80px;
+}
+/* btn-3 */
+.btn-3 {
+    color: #744D9D;
+}
+.btn-3:before,
+.btn-3:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top: 40px solid #744D9D;
+    border-bottom: 40px solid #744D9D;
+}
+
+.btn-3:before {
+    border-right: 40px solid transparent;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.btn-3:after {
+    border-left: 40px solid transparent;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
+
+.btn-3:hover {
+    color: #d7e5cb;
+}
+
+.btn-3:hover:before {
+    -webkit-transform: translateX(-30%);
+    transform: translateX(-30%);
+}
+
+.btn-3:hover:after {
+    -webkit-transform: translateX(30%);
+    transform: translateX(30%);
+}

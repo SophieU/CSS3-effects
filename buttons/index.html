@@ -13,6 +13,7 @@
         }
         .box{
             display: flex;
+            padding: 20px;
         }
         .right{
             border: 1px solid #ccc;
@@ -27,6 +28,8 @@
         <div class="left">
             <a href="#" class="btn-0">侧滑</a>
             <a href="#" class="btn-1">斜切</a>
+            <a href="#" class="btn-2"><span>交叉</span></a>
+            <a href="#" class="btn-3"><span>方块</span></a>
         </div>
         <div class="right">
             <h3>原理说明：</h3>
@@ -34,6 +37,7 @@
             <p>2.按钮btn设置position:relative;z-index:10;伪类设置：position:absolute;z-index:-1;(注意：父元素要设置z-index:10或者其他值，目的是让伪类能够显示出来。)</p>
             <p>3.过度，transition:.5s ease-in-out;</p>
             <p>4.侧移效果：transform:translateX(-100%),通过hover时设置translateX(0)</p>
+            <p>5.斜切效果：通过伪类的border值设置一定效果</p>
         </div>
     </div>
     
