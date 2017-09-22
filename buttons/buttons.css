@@ -11,9 +11,7 @@ a[class*='btn-']{
     line-height: 80px;
     z-index: 2;
 }
-.wrap {
-    padding: 20px
-}
+
  *,
  *:before,
  *:after {
@@ -44,3 +42,4 @@ a[class*='btn-']{
 .btn-0:hover:before {
     transform: translateX(0);
 }
+/* btn-1 */

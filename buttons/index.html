@@ -11,12 +11,31 @@
             background: #EEEEEE;
             font: 14px "微软雅黑"
         }
+        .box{
+            display: flex;
+        }
+        .right{
+            border: 1px solid #ccc;
+        }
+        .left,.right { padding: 20px }
+        h3{font-size:18px;font-weight:normal;}
+        p{color:#777;}
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <a href="#" class="btn-0">侧滑</a>
-        <a href="#" class="btn-1">斜切</a>
+    <div class="box">
+        <div class="left">
+            <a href="#" class="btn-0">侧滑</a>
+            <a href="#" class="btn-1">斜切</a>
+        </div>
+        <div class="right">
+            <h3>原理说明：</h3>
+            <p>1.利用元素伪类before,after实现</p>
+            <p>2.按钮btn设置position:relative;z-index:10;伪类设置：position:absolute;z-index:-1;(注意：父元素要设置z-index:10或者其他值，目的是让伪类能够显示出来。)</p>
+            <p>3.过度，transition:.5s ease-in-out;</p>
+            <p>4.侧移效果：transform:translateX(-100%),通过hover时设置translateX(0)</p>
+        </div>
     </div>
+    
 </body>
 </html>
