@@ -153,3 +153,25 @@ a[class*='btn-']{
     -webkit-transform: translateX(30%);
     transform: translateX(30%);
 }
+
+.btn-4{
+    color:#C62F2F;
+}
+.btn-4:before{
+    content:"";
+    position: absolute;
+    top:0;
+    left:0;
+    right:-50px;
+    bottom:0;
+    border-top: 80px solid #C62F2F;
+    border-right: 50px solid transparent;
+    transform: translateX(-100%)
+   
+}
+.btn-4:hover{
+    color: #fff;
+}
+.btn-4:hover:before{
+    transform:translateX(0)
+}
