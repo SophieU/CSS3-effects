@@ -51,13 +51,16 @@
             var parentOffset = $(this).offset();
             var relX = e.pageX-parentOffset.left ,
                 relY = e.pageY-parentOffset.top;
-            
+            $(this).find('span').css({
+                left: relX + 'px',
+                top: relY + 'px'
+            })
         })
         .on('mouseoute',function(e){
             let parentOffset = $(this).offset(),
                 relX = e.pageX - parentOffset.left,
                 relY = e.pageY - parentOffset.top;
-            
+ $(this).find('span').css({ left: relX + 'px', top: relY + 'px' })
         })
     </script>
 </body>
