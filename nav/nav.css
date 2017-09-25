@@ -1,112 +1,85 @@
-/* 面包屑导航 */
-.breadcrumb,
-.breadcrumb a{
-    height: 33px;
-    display:inline-block;
+:root{
+    --theme-color-1:#E91E63;
+    --theme-color-2:#fff;
+    --theme-color-3:#c70041;
 }
-.breadcrumb {
-    margin: 0;
-    padding: 0;
-    border-radius: 3px;
-    border-width: 1px;
-    border-style: solid;
-    border-color:#999;
+.breadcrumb{
+    box-shadow : 0 2px 5px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: inline-block;
     overflow: hidden;
+    border-radius: 5px;
+    counter-reset:flag;
 }
 
-.breadcrumb a{
-    line-height: 33px;
-    /*告诉渲染引擎（rendering engine）渲染文字的时候如何来优化，浏览器根据这个属性来权衡速度、易读性、几何精度等方面。*/
-    text-rendering:optimizeLegibility;
-    line-height: 33px;
+.breadcrumb_step{
+    outline: none;
+    display:block;
+    float:left;
     font-size: 12px;
-    font-weight: 300;
-    text-decoration: none;
-    padding: 0 10px 0 20px;
+    line-height: 36px;
+    padding:0 10px 0 60px;
     position: relative;
+    background: var(--theme-color-2);
+    color:var(--theme-color-1);
+    transition:background .4s;
 }
-.light .breadcrumb{
-    border-color: #9C9E9E;
+.breadcrumb_step:first-child{
+    padding-left: 46px;
+    border-radius: 5px 0 0 5px;
 }
-.light .breadcrumb a{
-    color: #454545;
-    background-color: #e5e9e9;
-    text-shadow: 0 -1px rgba(255, 255, 255, .7);
-    box-shadow: inset 0 1px 0 #fff;
+.breadcrumb_step:first-child:before{
+    left:14px;
 }
-
-.breadcrumb a:first-child {
-    padding-left: 16px;
+.breadcrumb_step:last-child{
+    border-radius: 0 5px 5px 0;
+    padding-right: 20px;
 }
-.breadcrumb a:last-child{
-    padding-right: 16px;
+.breadcrumb_step:last-child::after{
+    content:none;
 }
-.breadcrumb a:after,
-.breadcrumb a:before {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
-    border-top: 17px solid transparent;
-    border-bottom: 17px solid transparent;
-    /* make left half the height */
-    border-left: 10px solid transparent;
+.breadcrumb_step::before{
+    content:counter(flag);
+    counter-increment: flag;
+    border-radius: 100%;
+    width:20px;
+    height:20px;
+    color:var(--theme-color-1);
+    line-height: 20px;
+    margin: 8px 0;
     position: absolute;
-    margin: auto;
     top: 0;
-    bottom: 0;
-    left: 100%;
-    z-index: 2;
+    left:30px;
+    font-weight: bold;
+    background: var(--theme-color-2);
+    box-shadow: 0 0 0 1px var(--theme-color-1);
 }
-
-.breadcrumb a:before {
-    margin-left: 1px;
-    z-index: 1;
+.breadcrumb_step::after{
+    content:"";
+    position: absolute;
+    top:0;
+    right:-18px;
+    width:36px;
+    height: 36px;
+    transform:scale(0.707) rotate(45deg);
+    z-index:1;
+    border-radius: 0 5px 0 50px;
+    background: #fff;
+    transition: background 0.4s;
+    box-shadow: 2px -2px 0 2px #c70041;
 }
-.breadcrumb a:last-child {
-    color: #387FFF;
-    cursor: default;
-    pointer-events: none;
+.breadcrumb_step:hover,
+.breadcrumb_step.active,
+.breadcrumb_step:hover::before,
+.breadcrumb_step:hover::after,
+.breadcrumb_step.active::after{
+    background: var(--theme-color-1);
 }
-
-
-.breadcrumb a:last-child:after,
-.breadcrumb a:last-child:before,
-.breadcrumb input[type=text] {
-    border: none;
+.breadcrumb_step:hover,
+.breadcrumb_step.active {
+    color: var(--theme-color-2)
 }
-
-.light .breadcrumb a:after {
-    border-left-color: #e5e9e9;
-}
-
-.light .breadcrumb a:before {
-    border-left-color: #9C9E9E;
-}
-
-.light .breadcrumb a:hover {
-    background: #EDF1F1;
-}
-
-.light .breadcrumb a:hover:after {
-    border-left-color: #EDF1F1;
-}
-
-.light .breadcrumb a:last-child,
-.light .breadcrumb input[type=text] {
-    background-color: #d3d7d7;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
-}
-
-.light .breadcrumb input[type=text] {
-    color: #454545;
-    background-color: #D3D7D7;
-    border: 0;
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/49364/search-dark.svg);
-}
-
-.breadcrumb input[type=text]:focus {
-    outline-color: #0026FF;
-    background-color: #fff;
-    box-shadow: inset 0 0 0 2px #6CB4F3, inset 0 1px 2px rgba(0, 0, 0, .4);
+.breadcrumb_step:hover::before{
+    background: var(--theme-color-2);
+    color: var(--theme-color-1);
 }

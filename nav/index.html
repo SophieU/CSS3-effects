@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,79 @@
     <link rel="stylesheet" href="./nav.css">
     <title>导航条</title>
     <style>
-    html,body{
-        background: #eee;
-    }
-    .wrapper{
-        padding: 40px 20px;
-        font-family: "微软雅黑"
-    }
-    .content{
-        border: 1px solid #dddddd;
-        padding: 10px;
-    }
-    a{text-decoration: none;}
+        html,
+        body {
+            background: #eee;
+        }
+
+        .wrapper {
+            padding: 40px 20px;
+            font-family: "微软雅黑";
+            display: flex;
+        }
+
+        .content {
+            border: 1px solid #dddddd;
+            padding: 10px;
+            margin: 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .right {
+            max-width: 500px;
+        }
+
+        .example {
+            display: block;
+            box-shadow: 2px -2px 0 2px #c70041;
+            width: 30px;
+            height: 30px;
+            border-radius: 0 0 0 50px;
+            transform: rotate(45deg);
+            background: #c70041;
+        }
     </style>
 </head>
+
 <body>
+    <div class="test"></div>
     <div class="wrapper">
-        <h3>面包屑导航</h3>
-        <div class="content light">
+        <div class="content left">
             <div class="breadcrumb">
-                <a href="#">主页</a>
-                <a href="#">分类</a>
-                <a href="#">火锅</a>
-                <a href="#">清汤</a>
+                <a class="breadcrumb_step active" href="#">主页</a>
+                <a class="breadcrumb_step" href="#">分类</a>
+                <a class="breadcrumb_step" href="#">火锅</a>
+                <a class="breadcrumb_step" href="#">清汤</a>
             </div>
+        </div>
+        <div class="content right">
+            <h3>原理</h3>
+            <p>1.面包屑序号：使用CSS计数器 counter-restet:counter-name number;</p>
+            <p>counter-name:为自定的计数器名称，用于后面设置计数。number初始值，后面计数从number+1开始</p>
+            <p>设置计数：counter-increment:counter-name step-number; counter-name对应前面设置的计数器，step-number为每步间隔数字</p>
+            <p>使用伪类来设置内容:before,content:counter(counter-name)</p>
+            <br>
+            <p>2.右边角原理：扇形顺时针翻转45度。使用属性： transform:rotate(45deg);border-radius:0 0 0 50px;</p>
+            <p>注意：当元素足够小时，设置一边的border-radius就可以形似扇形</p>
+            <p>
+                <span class="example"></span>
+                <pre>
+                    .example{ 
+                        display:block; 
+                        box-shadow: 2px -2px 0 2px #c70041; 
+                        width: 30px; height: 30px; 
+                        border-radius: 0 0 0 50px; 
+                        transform:rotate(45deg); 
+                        background:#c70041; 
+                    }
+                </pre>
+            </p>
         </div>
     </div>
 </body>
+
 </html>
