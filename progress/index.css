@@ -27,3 +27,55 @@
         background-position:40px 0;
     }
 }
+/* 圆点loading */
+.rotate-loading{
+    margin:10px auto;
+    width: 200px;
+    height: 200px;
+    background: #ccc;
+    position: relative;
+}
+.dot{
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    -webkit-box-shadow: 0 0 3px white;
+    box-shadow: 0 0 3px white;
+    transform-origin:calc(2.5px + 30px) 2.5px;
+    opacity: 0;
+    animation:rotate 2s ease infinite;
+}
+@keyframes rotate{
+    0%{
+        opacity: 1;
+        transform:rotate(90deg);
+    }
+    50%{
+        width: 5px;
+        height: 5px;
+        opacity: 0.5;
+    }
+    100%{
+        transform:rotate(450deg);
+        opacity: 1;
+    }
+}
+.dot:nth-child(2){
+    animation-delay:.05s;
+}
+.dot:nth-child(3){
+    animation-delay:.1s;
+}
+.dot:nth-child(4){
+    animation-delay:.15s;
+}
+.dot:nth-child(5){
+    animation-delay:.2s;
+}
+.dot:nth-child(6){
+    animation-delay:.25s;
+}
