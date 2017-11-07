@@ -21,9 +21,27 @@
         margin:20px 30px;
         background: #fff;
      }
+     .test{
+         border:1px solid red;
+         width: 300px;
+     }
+     .test p:first-child{
+         padding: 10%;
+         margin: 0;
+         background: yellow;
+     }
+     .test p:last-child{
+         padding:20px;
+         margin: 0;
+         background: blue;
+     }
     </style>
 </head>
 <body>
+   <div class="test">
+       <p>这是一个p标签</p>
+       <p>这是一个p标签</p>
+   </div>
     <div class="main">
         <div class="content">
             <div class="left">
@@ -38,6 +56,14 @@
                     <div class="dot"></div>
                     <div class="dot"></div>
                     <div class="dot"></div>
+                </div>
+                <div class="counter-num">
+                    <ul>
+                        <li class="item">css计数器</li>
+                        <li class="item">css计数器</li>
+                        <li class="item">css计数器</li>
+                        <li class="item">css计数器</li>
+                    </ul>
                 </div>
             </div>
             <div class="right">
@@ -56,28 +82,10 @@
                 </div>
                 <div class="word-block">
                     <p>2.环形loading动效原理：6个小圆点，以圆心外的一个点(transform-orgin设置)旋转，通过animation-delay设置延迟，出现延续效果。</p>
-<pre>
-    .dot{
-        width: 5px;
-        height: 5px;
-        background: #fff;
-        border-radius: 100%;
-        position: absolute;
-        top: 50%;
-        left: 40%;
-        -webkit-box-shadow: 0 0 3px white;
-        box-shadow: 0 0 3px white;
-        transform-origin:calc(2.5px + 30px) 2.5px;
-        opacity: 0;
-        animation:rotate 2s ease infinite;
-    }
-    @keyframes rotate{
-        0%{opacity: 1;transform:rotate(90deg);}
-        50%{width: 5px;height: 5px;opacity: 0.5;}
-        100%{transform:rotate(450deg); opacity: 1;}
-    }
-    .dot:nth-child(2){animation-delay:.05s;}
-</pre>
+
+                </div>
+                <div class="word-block">
+                    <p>3.css计数器：li列表前的1，2，3序号不是文字写死的，而是通过css计数器，计算出的。counter-reset:name;设置计数器，对应：before伪类中，content:counter(name);来使用计数器，counter-increment:name;来设置递增</p>
                 </div>
             </div>
         </div>
