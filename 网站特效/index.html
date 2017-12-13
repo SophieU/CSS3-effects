@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./rotate3D.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="bg">
+          <span class="img a"></span>
+          <span class="text b">以傲慢与偏执<br/>回敬傲慢与偏见</span>
+          <span class="copyright c">code by qingjin.me | picture from t.tt</span>
+        </div>
+      </div>
+      <div>
+            思路：
+            <p>0.使用CSS3的transform-style: preserve-3d构建一个3D透视空间。</p>
+            <p>1.获取鼠标X，Y轴线性运动变量。</p>
+            <p>2.为了使鼠标左右移动图片产生左右偏转，得把鼠标运动到banner图中间点为“0,0”，这样的话往左为负，往右为正。</p>
+            <p>3.把变量赋值给CSS3的rotateX,rotateY。</p>
+      </div>
+      <script src="../jquery-2.1.0.js"></script>
+      <script>
+          $(function() {
+            $(".bg").mouseenter(function() {
+                var thisPX = $(this).offset().left;
+                var thisPY = $(this).offset().top;
+                var boxWidth = $(this).outerWidth();
+                var boxHeight = $(this).outerHeight();
+                $(this).addClass("threeD");
+                $(".threeD").mousemove(function(event) {
+                var mouseX = event.pageX - thisPX;
+                var mouseY = event.pageY - thisPY;
+                var X;
+                var Y;
+                if (mouseX > boxWidth / 2) {
+                    X = mouseX - boxWidth/2;
+                } else {
+                    X = mouseX - boxWidth/2;
+                }
+                if (mouseY > boxHeight / 2) {
+                    Y = boxHeight/2 - mouseY;
+                } else {
+                    Y = boxHeight/2 - mouseY;
+                }
+                $(".threeD").css({
+                    "-webkit-transform": "rotateY(" + X / 50 + "deg) " + "rotateX(" + Y / 50 + "deg)"
+                });
+                
+                // console.log(X + "," + Y);
+                });
+            });
+            $(".bg").mouseleave(function() {
+                $(this).removeClass("threeD");
+                $(this).css({
+                "-webkit-transform": "rotateY(0deg) rotateX(0deg)"
+                });
+            });
+            });
+      </script>
+</body>
+</html>
